@@ -1,5 +1,5 @@
  resources:  
-   - name: gitResource1
+   - name: sample
     type: GitRepo
     configuration:
       gitProvider: vijay_github
@@ -23,7 +23,7 @@ pipelines:
           dockerImageName: 34.66.110.173:8081/docker-local/vijay
           dockerImageTag: $pipeline_name.$run_number
           inputResources:
-            - name: sample_node
+            - name: sample
             - name: filespec
         execution:
           onComplete:
