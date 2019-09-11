@@ -1,0 +1,31 @@
+ resources:  
+   - name: gitResource1
+    type: GitRepo
+    configuration:
+      gitProvider: vijay_github
+      path: vijayreddy1991/filespec
+      
+      
+   - name: filespec
+     type: FileSpec
+     configuration:
+       sourceArtifactory: art
+       pattern: ankul_local_repo/version.json
+      
+pipelines:
+  - name: vijay_filespec
+    steps:
+      - name: docker_filespec
+        type: DockerBuild
+        configuration:
+          dockerFileLocation: .
+          dockerFileName: Dockerfile
+          dockerImageName: 34.66.110.173:8081/docker-local/vijay
+          dockerImageTag: $pipeline_name.$run_number
+          inputResources:
+            - name: sample_node
+            - name: filespec
+        execution:
+          onComplete:
+            - sudo apt-get install tree
+            - tree $run_dir/workspace
