@@ -1,9 +1,9 @@
  resources:  
    - name: sample
-    type: GitRepo
-    configuration:
-      gitProvider: vijay_github
-      path: vijayreddy1991/filespec
+     type: GitRepo
+     configuration:
+       gitProvider: vijay_github
+       path: vijayreddy1991/filespec
       
       
    - name: filespec
