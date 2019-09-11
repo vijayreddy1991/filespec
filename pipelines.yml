@@ -5,22 +5,34 @@
        gitProvider: vijay_github
        path: vijayreddy1991/filespec
       
-      
-   - name: filespec
-     type: FileSpec
-     configuration:
-       sourceArtifactory: art
-       pattern: ankul_local_repo/version.json
+  - name: filespec
+    type: FileSpec
+    configuration:      
+      sourceArtifactory: art
+      pattern: <string> # Mandatory if aql is not specified
+      aql: <string> # Mandatory if pattern is not specified
+      target: <string> # optional
+      props: <string> # optional
+      recursive: <boolean> # optional
+      flat: <boolean> # optional
+      excludePatterns: <string> # optional
+      archiveEntries: <string> # optional
+      buildName: <string> # optional
+      buildNumber: <integer> # optional
+      sortBy: <string> # optional
+      sortOrder: <string> # optional
+      limit: <integer> # optional
+      offset: <integer> # optional
       
 pipelines:
   - name: vijay_filespec
     steps:
-      - name: docker_filespec
+      - name: build_docker_image
         type: DockerBuild
         configuration:
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: 34.66.110.173:8081/docker-local/vijay
+          dockerImageName: 34.66.110.173:8081/docker-local/ankul 
           dockerImageTag: $pipeline_name.$run_number
           inputResources:
             - name: sample
