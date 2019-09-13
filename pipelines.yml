@@ -9,7 +9,7 @@ resources:
     type: FileSpec
     configuration:      
       sourceArtifactory: art
-#       pattern: <string> # Mandatory if aql is not specified
+      pattern: test-docker-local/vijay # Mandatory if aql is not specified
 #       aql: <string> # Mandatory if pattern is not specified
 #       target: <string> # optional
 #       props: <string> # optional
@@ -32,7 +32,7 @@ pipelines:
         configuration:
           dockerFileLocation: .
           dockerFileName: Dockerfile
-          dockerImageName: 34.66.110.173:8081/docker-local/ankul 
+          dockerImageName: 34.66.110.173:8081/docker-local/vijay/myImg_docker1.2
           dockerImageTag: $pipeline_name.$run_number
           inputResources:
             - name: sample
